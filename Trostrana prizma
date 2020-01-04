@@ -1,0 +1,104 @@
+using System;
+
+namespace ConsoleApplication2
+{
+    internal class Program
+    {
+        public static void Main(string[] args)
+        {
+            //trosstrana piramida
+            Console.WriteLine("Izaberite jednu od opcija");
+            Console.WriteLine("1.Racunanje povrsine");
+            Console.WriteLine("2.Racunanje zapremine");
+            Console.WriteLine("3.Racunanje visine prizme");
+            Console.WriteLine("4.Racunanje visnie baze");
+            Console.WriteLine("5.Racunanje duzine baze");
+
+            int izborOpcije = Convert.ToInt32(Console.ReadLine());
+
+            if (izborOpcije < 1 || izborOpcije > 5)
+            {
+                while (izborOpcije < 1 || izborOpcije > 5)
+                {
+                    Console.WriteLine("Broj mora biti izmedju 1 i 5, pokusajte ponovo");//ako je unos nedozvoljen
+                    izborOpcije = Convert.ToInt32(Console.ReadLine());
+                }
+            }
+
+            if (izborOpcije == 1)
+            {
+                Console.WriteLine("Izabrali ste racunanje povrsine");
+                Console.WriteLine("unesite Duzinu baze (a)");
+                double bazaDuzina = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("unesite visinu prizme");
+                double visinaPrizme = Convert.ToDouble(Console.ReadLine());
+
+
+                double povBaze = Math.Pow(bazaDuzina, 2) * Math.Sqrt(3) / 4;
+                povBaze = Math.Round(povBaze, 2);
+                double povOmotaca = 3 * bazaDuzina * visinaPrizme;
+                povOmotaca = Math.Round(povOmotaca, 2);
+                double povPrizme = 2*povBaze + povOmotaca;
+                povPrizme = Math.Round(povPrizme, 2);
+                Console.WriteLine("povrsina baze " + povBaze);
+                Console.WriteLine("povrsina omotaca " + povOmotaca);
+                Console.WriteLine("povrsina prizme "+povPrizme);
+            }
+
+            if (izborOpcije == 2)
+            {
+                Console.WriteLine("Izabrali ste racunanje zapremine");
+                Console.WriteLine("unesite duzinu baze(a)");
+                double bazaDuzina = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("unesite visinu prizme");
+                double visinaPrizme = Convert.ToDouble(Console.ReadLine());
+
+                double povBaze = Math.Pow(bazaDuzina, 2) * Math.Sqrt(3) / 4;
+                povBaze = Math.Round(povBaze, 2);
+                double zapreminaPrizme = povBaze * visinaPrizme;
+                zapreminaPrizme = Math.Round(zapreminaPrizme, 2);
+                Console.WriteLine("zapremina je " + zapreminaPrizme);
+
+            }
+
+           
+
+            if (izborOpcije == 3)
+            {
+                Console.WriteLine("izabrali ste racunanje visine prizme");
+                Console.WriteLine("unesite Duzinu baze (a)");
+                double bazaDuzina = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("unesite zapreminu prizme ");
+                double zapreminaPrizme = Convert.ToDouble(Console.ReadLine());
+
+                double visinaPrizme = zapreminaPrizme / (Math.Pow(bazaDuzina, 2) * Math.Sqrt(3) / 4);
+                visinaPrizme = Math.Round(visinaPrizme, 2);
+                Console.WriteLine("visina je " + visinaPrizme);
+            }
+
+            if (izborOpcije==4)
+            { Console.WriteLine("Izabrali ste racunanje visine baze");
+                Console.WriteLine("Unesite duzinu baze");
+                double bazaDuzina = Convert.ToDouble(Console.ReadLine());
+
+                double visinaBaze = (bazaDuzina * Math.Sqrt(3)) / 2;
+                visinaBaze = Math.Round(visinaBaze, 2);
+                Console.WriteLine("Visina baze je " + visinaBaze);
+            }
+
+            if (izborOpcije == 5)
+            {
+                Console.WriteLine("izabrali ste racunanje duzine baze");
+                Console.WriteLine("unesite visinu baze");
+                double visinaBaze = Convert.ToDouble(Console.ReadLine());
+
+
+                double bazaDuzina = (2 * visinaBaze) / (Math.Sqrt(3));
+                bazaDuzina = Math.Round(bazaDuzina, 2);
+                Console.WriteLine("duzina baze je " + bazaDuzina);
+
+            }
+
+        }
+    }
+}
