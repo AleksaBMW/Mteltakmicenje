@@ -1,0 +1,120 @@
+using System;
+
+namespace ConsoleApplication3
+{
+    internal class Program
+    {
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("Izaberite jednu opciju");
+            Console.WriteLine("1.racunanje povrsine");
+            Console.WriteLine("2.racunanje zapremine");
+            Console.WriteLine("3.racunanje visine");
+            Console.WriteLine("4.racunanje duzine baze");
+            Console.WriteLine("5.racunanje povrsine dijagonalnog presjeka");
+            Console.WriteLine("6.Racunanje dijagonale");
+            int izborOpcije = Convert.ToInt32(Console.ReadLine());
+
+            if (izborOpcije < 1 || izborOpcije > 6)
+            {
+                while (izborOpcije < 1 || izborOpcije > 6)
+                {
+                    Console.WriteLine("Broj mora biti izmedju 1 i 6, pokusajte ponovo");//ako je unos nedozvoljen
+                    izborOpcije = Convert.ToInt32(Console.ReadLine());
+                }
+            }
+
+            if (izborOpcije == 1)
+            {
+                Console.WriteLine("Izabrali ste racunaje povrsine");
+                Console.WriteLine("Unesite duzinu baze");
+                double bazaDuzina = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("unesite visinu prizme");
+                double visinaPrizme = Convert.ToDouble(Console.ReadLine());
+
+                double povBaze = Math.Pow(bazaDuzina, 2);
+                povBaze = Math.Round(povBaze, 2);
+                double povOmotaca = 4 * (bazaDuzina * visinaPrizme);
+                povOmotaca = Math.Round(povOmotaca, 2);
+                double povPrizme = 2*povBaze + povOmotaca;
+                povPrizme = Math.Round(povPrizme, 2);
+                Console.WriteLine("povrsina baze je " + povBaze);
+                Console.WriteLine("povrsina omotaca je" + povOmotaca);
+                Console.WriteLine("povrsina prizme je" + povPrizme);
+
+            }
+
+            if (izborOpcije == 2)
+            {
+                Console.WriteLine("izabrali ste racunanje zaremine ");
+                Console.WriteLine("unesite duzinu baze");
+                double bazaDuzina = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("unesite visinu prizme");
+                double visinaPrizme = Convert.ToDouble(Console.ReadLine());
+
+                double zapreminaPrizme = Math.Pow(bazaDuzina, 2) * visinaPrizme;
+                zapreminaPrizme = Math.Round(zapreminaPrizme, 2);
+                Console.WriteLine("zapremina je " + zapreminaPrizme);
+
+
+
+            }
+
+           
+
+           
+
+            if (izborOpcije == 3)
+            {
+                Console.WriteLine("izabrali ste racunanje visine");
+                Console.WriteLine("unesite Duzinu baze (a)");
+                double bazaDuzina = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("unesite povrsinu dijagonalnog presjeka");
+                double povrsinaPresjeka = Convert.ToDouble(Console.ReadLine());
+
+                double visinaPrizme = povrsinaPresjeka / (bazaDuzina * Math.Sqrt(2));
+                visinaPrizme = Math.Round(visinaPrizme, 2);
+                Console.WriteLine("visina prizme je " + visinaPrizme);
+            }
+
+            if (izborOpcije == 4)
+            {
+                Console.WriteLine("izabrali ste racunanje duzine baze");
+                Console.WriteLine("unesite visinu prizme");
+                double visinaPrizme = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("unesite povrsinu dijagonalnog presjeka");
+                double povrsinaPresjeka = Convert.ToDouble(Console.ReadLine());
+
+                double duzinaBaze = (povrsinaPresjeka / visinaPrizme) / Math.Sqrt(2);
+                duzinaBaze = Math.Round(duzinaBaze, 2);
+                Console.WriteLine("duzina baze je " + duzinaBaze);
+
+            }
+
+            if (izborOpcije == 5)
+            {
+                Console.WriteLine("Racunanje povrsin dijagonalnog presjeka");
+                Console.WriteLine("unesite duzinu dijagonale");
+                double duzinaDijagonale = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("unesite visinu prizme");
+                double visinaPrizme = Convert.ToDouble(Console.ReadLine());
+
+                double povrsinaPresjeka = duzinaDijagonale * visinaPrizme ;
+                povrsinaPresjeka = Math.Round(povrsinaPresjeka, 2);
+                Console.WriteLine("Povrsina dijagonalnog presjeka je " + povrsinaPresjeka);
+            }
+
+            if (izborOpcije == 6)
+            {
+                Console.WriteLine("izabrali ste racunanje dijagonale");
+                Console.WriteLine("unesite Duzinu baze (a)");
+                double bazaDuzina = Convert.ToDouble(Console.ReadLine());
+
+                double duzinaDijagonale = bazaDuzina * Math.Sqrt(2);
+                duzinaDijagonale = Math.Round(duzinaDijagonale, 2);
+                Console.WriteLine("duzina dijagonale je " + duzinaDijagonale);
+
+            }
+        }
+    }
+}
